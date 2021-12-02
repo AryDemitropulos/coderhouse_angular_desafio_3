@@ -1,0 +1,17 @@
+<div *ngIf="registeredList.length > 0" class="text-center mb-5">
+  <h4>Lista de participantes que ya se inscribieron!</h4>
+  <h4 *ngIf="registeredList.length < maxCapacity; else fullList">
+    Solo quedan {{ registeredList.length + "/" + maxCapacity }} lugares!!
+  </h4>
+
+  <ng-template #fullList
+    ><h4>
+      Cupo lleno
+      <i class="fa fa-exclamation-triangle text-warning" aria-hidden="true"></i>
+    </h4>
+  </ng-template>
+  <h6 *ngFor="let name of registeredList">
+    <i class="fa fa-drivers-license-o text-primary" aria-hidden="true"></i>
+    {{ name }}
+  </h6>
+</div>
